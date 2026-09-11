@@ -18,6 +18,7 @@ REPLACE Request: Submit updated record payloads to modify existing GND entries v
 AI-Assisted Processing: AI workflows integrated into key metadata processing tasks.
 
 Folder Structure
+
 api/ 
 
 Handles direct interaction with the GND SRU endpoint. Manages connection parameters, XML payload formatting, and execute CREATE and REPLACE write requests to create or update GND records.
