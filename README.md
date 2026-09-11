@@ -1,15 +1,35 @@
 # GND-Toolbox
 
-A small Python project to support work with data from the **GND (Gemeinsame Normdatei)** and related authority files.
+A Python project to streamline data management, entity matching, and direct authority file interactions for the GND (Gemeinsame Normdatei) and related metadata standards.
 
-This project helps:
-- Clean and standardize metadata
-- Match or correct entries (e.g. names, institutions)
-- Use AI to assist with data tasks
-- Pull authority information (e.g. from LoC, GND, Wikidata)
+Key Features
+Metadata Cleaning & Standardizing: Utilities to clean, parse, and normalize record sets.
 
-Folder Breakdown:
+Entity Matching: Automated mapping across datasets using structured lookup rules and waterfall matching logic.
 
-find/: Contains code regarding finding and isolating information within the GND database or local lists. This includes streaming through massive MARCXML dumps to pull out specific project IDs or searching for particular academic keywords to segment the data.
+GND API Operations (SRU Direct Interaction):
 
-match/: Contains scripts regarding finding matching records across your datasets. This code handles your lookup maps and "Waterfall" priority matching strategies to find where your local records explicitly align with GND properties.
+Query & Fetch: Retrieve authority information across multiple sources (GND, LoC, Wikidata).
+
+CREATE Request: Generate and submit new GND records directly via the SRU interface.
+
+REPLACE Request: Submit updated record payloads to modify existing GND entries via SRU.
+
+AI-Assisted Processing: AI workflows integrated into key metadata processing tasks.
+
+Folder Structure
+api/ 
+
+Handles direct interaction with the GND SRU endpoint. Manages connection parameters, XML payload formatting, and execute CREATE and REPLACE write requests to create or update GND records.
+
+find/
+
+Code for locating and isolating target information within local files or the GND database. Handles streaming through large MARCXML dumps, isolating specific project IDs, and filtering data by academic keywords.
+
+mapping/
+
+Contains schema transformations, crosswalks, and field-mapping definitions used to align local data models with standard GND/MARC21 structures before processing or uploading.
+
+match/
+
+Scripts for cross-dataset record matching. Manages lookup tables and multi-tiered "waterfall" priority strategies to match local records against GND entities.
